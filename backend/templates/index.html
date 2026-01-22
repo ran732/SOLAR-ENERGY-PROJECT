@@ -1,3 +1,6 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +15,19 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
+    
     body {
       background-color: #f4f9f4;
     }
     .hero {
-      background: linear-gradient(to right, #1d976c, #93f9b9);
+      background: linear-gradient(to right, #20936b, #076128);
       color: white;
       padding: 80px 20px;
+    }
+    .container{
+      background: linear-gradient(to right, #4f8070, #6ba480) ;
+      
+
     }
     .card {
       border-radius: 15px;
@@ -43,20 +52,37 @@
 
 <!-- ================= FEATURES ================= -->
 <section class="container my-5">
-  <div class="row text-center">
-    <div class="col-md-4">
-      <h3>⚡ Live Monitoring</h3>
+  <div class="row m-4 text-center">
+
+  <!-- Live Monitoring Card -->
+  <div class="col-md-4 mb-4 d-flex">
+    <div class="card flex-fill  shadow">
+      <img src="{% static 'images/A1.jpg' %}" alt="Live Monitoring" class="img-fluid mb-3 rounded">
+      <h5>⚡ Live Monitoring</h5>
       <p>Track real-time solar power output.</p>
     </div>
-    <div class="col-md-4">
-      <h3>🔮 Prediction</h3>
-      <p>Weather-based energy prediction.</p>
-    </div>
-    <div class="col-md-4">
-      <h3>🌍 Sustainability</h3>
-      <p>Visualize CO₂ emission reduction.</p>
+  </div>
+
+  <!-- Prediction Card -->
+  <div class="col-md-4 mb-4 d-flex">
+    <div class="card flex-fill  shadow">
+      <img src="{% static 'images/A3.jpg' %}" alt="Prediction" class="img-fluid mb-3 rounded">
+      <h5>🔮 Prediction</h5>
+      <p>Get tomorrow’s solar output forecast.</p>
     </div>
   </div>
+
+  <!-- Sustainability Card -->
+  <div class="col-md-4 mb-4 d-flex">
+    <div class="card flex-fill  shadow">
+      <img src="{% static 'images/A4.jpg' %}" alt="Sustainability" class="img-fluid mb-3 rounded">
+      <h5>🌍 Sustainability</h5>
+      <p>See CO₂ saved through solar energy.</p>
+    </div>
+  </div>
+
+</div>
+
 </section>
 
 <!-- ================= DASHBOARD ================= -->
@@ -65,30 +91,40 @@
   <h2 class="text-center mb-4">📊 Energy Dashboard</h2>
 
   <!-- METRIC CARDS -->
-  <div class="row mb-4">
-    <div class="col-md-4">
-      <div class="card text-center p-3 shadow">
-        <h5>⚡ Live Power Output</h5>
-        <h2 id="livePower">4.5 kW</h2>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card text-center p-3 shadow">
-        <h5>🔮 Tomorrow Prediction</h5>
-        <h2 id="prediction">19.2 kWh</h2>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card text-center p-3 shadow">
-        <h5>🌍 CO₂ Saved</h5>
-        <h2 id="co2">15.7 kg</h2>
-      </div>
+ <div class="row m-4 text-center ">
+
+  <div class="col-md-4 mb-4 d-flex">
+    <div class="card  shadow flex-fill">
+      <img src="{% static 'images/A5.jpg' %}" alt="Live Output Power" class="img-fluid mb-3 rounded">
+      <h5>⚡ Live Power Output</h5>
+      <h2 id="livePower">4.5 kW</h2>
     </div>
   </div>
 
+  <div class="col-md-4 mb-4 d-flex">
+    <div class="card  shadow flex-fill">
+      <img src="{% static 'images/A6.jpg' %}" alt="Tomorrow Prediction" class="img-fluid mb-3 rounded">
+      <h5>🔮 Tomorrow Prediction</h5>
+      <h2 id="prediction">19.2 kWh</h2>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-4 d-flex">
+    <div class="card  shadow flex-fill ">
+      <img src="{% static 'images/A8.jpg' %}" alt="CO₂ solved" class="img-fluid mb-3 rounded">
+      <h5>🌍 CO₂ Saved</h5>
+      <h2 id="co2">15.7 kg</h2>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
   <!-- CHARTS -->
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mb-5">
       <div class="card p-3 shadow">
         <h5 class="text-center">Energy Generated Today</h5>
         <canvas id="energyChart"></canvas>
@@ -105,12 +141,12 @@
 
   <!-- IMPACT SECTION -->
   <div class="row mt-5">
-    <div class="col-md-4">
+    <div class="col-md-4 mb-5">
       <div class="impact-box shadow">
         🌳 <strong>Trees Saved:</strong> 4
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 mb-5">
       <div class="impact-box shadow">
         🚗 <strong>Cars Reduced:</strong> 1
       </div>
@@ -124,9 +160,52 @@
 
 </section>
 
+
 <!-- ================= FOOTER ================= -->
-<footer class="text-center p-3 bg-dark text-white">
-  Built for Sustainability Hackathon 🌱 | Team GreenTech
+<footer class="bg-dark text-white pt-4 pb-2 mt-5">
+  <div class="container-footer">
+    <div class="row text-center text-md-start">
+
+      <!-- About Section -->
+      <div class="col-md-4 mb-3">
+        <h5>Solar Energy Project</h5>
+        <p>Monitor live power output, predictions, and CO₂ savings for your solar panels.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Dashboard</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Reports</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>Email: support@solarproject.com</p>
+        <p>Phone: +91 9876543210</p>
+        <div class="mt-2">
+          <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="bg-white">
+
+    <!-- Footer Bottom -->
+    <div class="row">
+      <div class="col text-center">
+        <p class="mb-0">&copy; 2026 Solar Energy Project. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <!-- ================= JS ================= -->
