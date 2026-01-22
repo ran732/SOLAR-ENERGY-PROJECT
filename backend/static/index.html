@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Solar Energy Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      background-color: #f4f9f4;
+    }
+    .hero {
+      background: linear-gradient(to right, #1d976c, #93f9b9);
+      color: white;
+      padding: 80px 20px;
+    }
+    .card {
+      border-radius: 15px;
+    }
+    .impact-box {
+      background: #ffffff;
+      border-left: 6px solid #28a745;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HERO / LANDING PAGE ================= -->
+<section class="hero text-center">
+  <h1 class="display-5 fw-bold">🌞 Smart Solar Energy Dashboard</h1>
+  <p class="lead">Track • Predict • Save the Planet</p>
+  <a href="#dashboard" class="btn btn-light btn-lg mt-3">View Live Dashboard</a>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="container my-5">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <h3>⚡ Live Monitoring</h3>
+      <p>Track real-time solar power output.</p>
+    </div>
+    <div class="col-md-4">
+      <h3>🔮 Prediction</h3>
+      <p>Weather-based energy prediction.</p>
+    </div>
+    <div class="col-md-4">
+      <h3>🌍 Sustainability</h3>
+      <p>Visualize CO₂ emission reduction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DASHBOARD ================= -->
+<section id="dashboard" class="container my-5">
+
+  <h2 class="text-center mb-4">📊 Energy Dashboard</h2>
+
+  <!-- METRIC CARDS -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-center p-3 shadow">
+        <h5>⚡ Live Power Output</h5>
+        <h2 id="livePower">4.5 kW</h2>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center p-3 shadow">
+        <h5>🔮 Tomorrow Prediction</h5>
+        <h2 id="prediction">19.2 kWh</h2>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center p-3 shadow">
+        <h5>🌍 CO₂ Saved</h5>
+        <h2 id="co2">15.7 kg</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARTS -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card p-3 shadow">
+        <h5 class="text-center">Energy Generated Today</h5>
+        <canvas id="energyChart"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card p-3 shadow">
+        <h5 class="text-center">Weekly Energy Output</h5>
+        <canvas id="weeklyChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPACT SECTION -->
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="impact-box shadow">
+        🌳 <strong>Trees Saved:</strong> 4
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="impact-box shadow">
+        🚗 <strong>Cars Reduced:</strong> 1
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="impact-box shadow">
+        💰 <strong>Money Saved:</strong> ₹135 / day
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="text-center p-3 bg-dark text-white">
+  Built for Sustainability Hackathon 🌱 | Team GreenTech
+</footer>
+
+<!-- ================= JS ================= -->
+<script>
+  // Line Chart (Today)
+  const energyCtx = document.getElementById('energyChart').getContext('2d');
+  new Chart(energyCtx, {
+    type: 'line',
+    data: {
+      labels: ['8 AM', '10 AM', '12 PM', '2 PM', '4 PM', '6 PM'],
+      datasets: [{
+        label: 'Energy (kWh)',
+        data: [1.2, 2.8, 4.5, 5.2, 4.1, 2.3],
+        borderColor: '#28a745',
+        fill: false,
+        tension: 0.4
+      }]
+    }
+  });
+
+  // Bar Chart (Weekly)
+  const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
+  new Chart(weeklyCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Energy (kWh)',
+        data: [18, 20, 22, 19, 24, 26, 23],
+        backgroundColor: '#1d976c'
+      }]
+    }
+  });
+</script>
+
+</body>
+</html>
